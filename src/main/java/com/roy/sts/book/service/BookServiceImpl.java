@@ -24,6 +24,15 @@ public class BookServiceImpl implements BookService {
 		bookList = bookDAO.selectAllBookList();
 		return bookList;
 	}
+	
+	@Override
+//	public BookVO getBookDetails(int num) throws DataAccessException {
+	public List getBookDetails(int num) throws DataAccessException {
+
+		List bookView = null;
+		bookView = bookDAO.getBook(num);
+		return bookView;
+	}
 
 	@Override
 	public int addBook(BookVO book) throws DataAccessException {

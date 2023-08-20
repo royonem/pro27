@@ -46,6 +46,32 @@ public class BookControllerImpl implements BookController {
 		return mav;
 	}
 
+//	@Override
+//	@RequestMapping(value = "/book/viewBook.do", method = RequestMethod.GET)
+//	public ModelAndView viewBook(@ModelAttribute("bookView") BookVO bookView, HttpServletRequest request) throws Exception {
+//		String viewName = getViewName(request);
+//		List<BookVO> bookDetails = bookService.getBookDetails(num);
+//		ModelAndView mav = new ModelAndView(viewName);
+//				
+//		mav.addObject("modelBookView", bookView);  // Changed attribute name
+//	    mav.addObject("bookDetails", bookDetails);  // Add book details list
+//
+//		return mav;
+//	}
+	
+	@Override
+	@RequestMapping(value = "/book/viewBook.do", method = RequestMethod.GET)
+	public ModelAndView viewBook(@RequestParam("num") int num, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = getViewName(request);
+		List<BookVO> bookDetails = bookService.getBookDetails(num);
+		ModelAndView mav = new ModelAndView(viewName);
+				
+//		mav.addObject("modelBookView", bookView);  // Changed attribute name
+	    mav.addObject("bookDetails", bookDetails);  // Add book details list
+
+		return mav;
+	}
+
 	@Override
 	@RequestMapping(value = "/book/removeBook.do", method = RequestMethod.GET)
 	public ModelAndView removeBook(@RequestParam("num") String num, HttpServletRequest request,

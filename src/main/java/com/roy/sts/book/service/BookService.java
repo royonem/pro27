@@ -10,5 +10,5 @@ public interface BookService {
 	 public List listBooks() throws DataAccessException;
 	 public int addBook(BookVO bookVO) throws DataAccessException;
 	 public int removeBook(String num) throws DataAccessException;
-
+	 public List getBookDetails(int num) throws DataAccessException;
 }

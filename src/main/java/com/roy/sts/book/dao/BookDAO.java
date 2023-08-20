@@ -9,5 +9,6 @@ public interface BookDAO {
 	 public List selectAllBookList() throws DataAccessException;
 	 public int insertBook(BookVO bookVO) throws DataAccessException ;
 	 public int deleteBook(String num) throws DataAccessException;
+	 public List getBook(int num) throws DataAccessException;
 	 
 }

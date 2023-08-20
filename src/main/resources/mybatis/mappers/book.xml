@@ -25,6 +25,12 @@
 		]]>      
 	</insert>
 	
+	<select id="selectBook" resultMap="bookResult">
+      <![CDATA[
+         select * from book_details	where num = ${num} 	
+      ]]>
+	</select>
+	
 <!-- 	<insert id="insertBook2"  parameterType="java.util.HashMap"> -->
 <!-- 		<![CDATA[ -->
 <!-- 			 insert into book_details(num, studyDate, title, details, chapters) -->

@@ -26,6 +26,13 @@ public class BookDAOImpl implements BookDAO {
 		int result = sqlSession.insert("mapper.book.insertBook", bookVO);
 		return result;
 	}
+	
+	@Override
+	public List getBook(int num) throws DataAccessException {
+		List<BookVO> bookView = null;
+		bookView = sqlSession.selectList("mapper.book.selectBook", num);
+		return bookView;
+	}
 
 	@Override
 	public int deleteBook(String num) throws DataAccessException {

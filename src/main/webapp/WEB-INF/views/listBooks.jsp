@@ -17,7 +17,7 @@
 <body>
 <table border="1"  align="center"  width="80%">
     <tr align="center"   bgcolor="lightgreen">
-      <td ><b>num</b></td>
+      <td><b>num</b></td>
       <td><b>학습 일자</b></td>
       <td><b>학습 내용</b></td>
 <!--       <td><b>학습 세부 내용</b></td> -->
@@ -29,7 +29,7 @@
    <tr align="center">
       <td>${book.num}</td>
       <td>${book.studyDate}</td>
-      <td>${book.studyTitle}</td>
+      <td><a href="${contextPath}/book/viewBook.do?num=${book.num}">${book.studyTitle}</a></td>
 <%--       <td>${book.studyDetails}</td> --%>
       <td>${book.totalChapters}</td>
       <td><a href="${contextPath}/book/removeBook.do?num=${book.num}">삭제하기</a></td>

@@ -37,7 +37,7 @@
 			<tr>
 				<td width="200"><p align="right">Study Details</td>
 				<td width="400"><p>
-						<textarea name="studyDetails" = rows="20" cols="50"> </textarea>
+						<textarea name="studyDetails" rows="20" cols="50"> </textarea>
 					</p></td>
 			</tr>
 			<tr>

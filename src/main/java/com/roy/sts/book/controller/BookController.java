@@ -18,5 +18,10 @@ public interface BookController {
 
 	public ModelAndView removeBook(@RequestParam("num") String num, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+	
+//	public ModelAndView viewBook(@ModelAttribute("bookView") BookVO bookView, HttpServletRequest request) throws Exception;
+	
+	public ModelAndView viewBook(@RequestParam("num") int num, HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 
 }
