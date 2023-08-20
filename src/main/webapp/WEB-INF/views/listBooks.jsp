@@ -11,7 +11,7 @@
 
 <html>
 <head>
-<meta charset=UTF-8">
+<meta charset="UTF-8">
 <title>책 목록</title>
 </head>
 <body>
