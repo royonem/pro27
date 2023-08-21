@@ -16,38 +16,38 @@
 .text_center {
 	text-align: center;
 }
+
+.form-center {
+	text-align: center;
+	margin-top: 20px;
+}
 </style>
 </head>
 <body>
-	<form method="post" action="${contextPath}/book/modBook.do">
 		<h1 class="text_center">학습 내용</h1>
-		<table align="center">
+		<table align="center" border="1">
 			<tr>
-				<td width="200">${bookDetails.studyDate}</td>
-				<td width="400"><p>
-					</p></td>
+				<td width="200">학습일자</td>
+				<td width="400">${bookDetails.studyDate}</td>
 			<tr>
-				<td width="200"><p align="right">${bookDetails.studyTitle}</td>
-				<td width="400"><p>
-					</p></td>
+				<td width="200">학습 제목</td>
+				<td width="400">${bookDetails.studyTitle}</td>
 			<tr>
-				<td width="200"><p align="right">${bookDetails.totalChapters}</td>
-				<td width="400"><p>
-					</p></td>
+				<td width="200">수업량</td>
+				<td width="400">${bookDetails.totalChapters}</td>
 			</tr>
 			<tr>
-				<td width="200"><p align="right">${bookDetails.studyDetails}</td>
-				<td width="400"><p>
-					</p></td>
+				<td width="200">학습 세부 내용</td>
+				<td width="400">${bookDetails.studyDetails}</td>
 			</tr>
 			<tr>
-				<td width="200"><p>&nbsp;</p></td>
-				<td width="400">
-					<input type="submit" value="수정하기">
-					<input type="reset" value="다시입력">
-				</td>
 			</tr>
 		</table>
-	</form>
+		<div class="form-center">
+			<button	onclick="window.location='${contextPath}/book/editBook.do?num=${book.num}'">학습 수정 하기</button>
+			<button onclick="window.location='${contextPath}/book/bookForm.do'">학습 추가 하기</button>
+			<button onclick="window.location='${contextPath}/book/deleteBook.do?num=${book.num}'">학습 삭제 하기</button>
+			<button onclick="window.location='${contextPath}/book/listBooks.do'">학습 목록 가기</button>
+		</div>
 </body>
 </html>

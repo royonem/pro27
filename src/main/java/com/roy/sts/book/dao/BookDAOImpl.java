@@ -40,9 +40,6 @@ public class BookDAOImpl implements BookDAO {
 	@Override
 	public BookVO getBook(int num) throws DataAccessException {
 		BookVO bookView = null;
-//	    Map<String, Object> paramMap = new HashMap<String, Object>();
-//	    paramMap.put("num", num);
-//	    bookView = sqlSession.selectList("mapper.book.selectBook", paramMap);
 	    logger.debug("num " + num);
         logger.info("num " + num);
         logger.error("num " + num);
