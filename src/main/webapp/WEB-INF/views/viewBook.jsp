@@ -38,15 +38,15 @@
 			</tr>
 			<tr>
 				<td width="200">학습 세부 내용</td>
-				<td width="400">${bookDetails.studyDetails}</td>
+				<td width="400"><pre>${bookDetails.studyDetails}</pre></td>
 			</tr>
 			<tr>
 			</tr>
 		</table>
 		<div class="form-center">
-			<button	onclick="window.location='${contextPath}/book/editBook.do?num=${book.num}'">학습 수정 하기</button>
+			<button	onclick="window.location='${contextPath}/book/editBook.do?num=${bookDetails.num}'">학습 수정 하기</button>
 			<button onclick="window.location='${contextPath}/book/bookForm.do'">학습 추가 하기</button>
-			<button onclick="window.location='${contextPath}/book/deleteBook.do?num=${book.num}'">학습 삭제 하기</button>
+			<button onclick="window.location='${contextPath}/book/removeBook.do?num=${bookDetails.num}'">학습 삭제 하기</button>
 			<button onclick="window.location='${contextPath}/book/listBooks.do'">학습 목록 가기</button>
 		</div>
 </body>

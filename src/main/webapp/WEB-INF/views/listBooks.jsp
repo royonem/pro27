@@ -22,7 +22,7 @@
       <td><b>학습 내용</b></td>
 <!--       <td><b>학습 세부 내용</b></td> -->
       <td><b>학습량</b></td>
-      <td><b>삭제</b></td>
+<!--       <td><b>삭제</b></td> -->
    </tr>
    
  <c:forEach var="book" items="${bookList}" >     
@@ -32,7 +32,7 @@
       <td><a href="${contextPath}/book/viewBook.do?num=${book.num}">${book.studyTitle}</a></td>
 <%--       <td>${book.studyDetails}</td> --%>
       <td>${book.totalChapters}</td>
-      <td><a href="${contextPath}/book/removeBook.do?num=${book.num}">삭제하기</a></td>
+<%--       <td><a href="${contextPath}/book/removeBook.do?num=${book.num}">삭제하기</a></td> --%>
     </tr>
   </c:forEach>   
 </table>

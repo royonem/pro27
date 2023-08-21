@@ -7,51 +7,49 @@
 	<resultMap id="bookResult" type="bookVO">
 		<result property="num" column="num" />
 		<result property="studyDate" column="studyDate" />
-        <result property="studyTitle" column="title" />
-        <result property="studyDetails" column="details" />
-        <result property="totalChapters" column="chapters" />
-	</resultMap> 
-	
+		<result property="studyTitle" column="title" />
+		<result property="studyDetails" column="details" />
+		<result property="totalChapters" column="chapters" />
+	</resultMap>
+
 	<select id="selectAllBookList" resultMap="bookResult">
       <![CDATA[
          select * from book_details	 	
       ]]>
 	</select>
-    
-     <insert id="insertBook"  parameterType="bookVO">
+
+	<insert id="insertBook" parameterType="bookVO">
 		<![CDATA[
 			 insert into book_details(num, studyDate, title, details, chapters)
 			 values(entryno_sequence.NEXTVAL, #{studyDate}, #{studyTitle}, #{studyDetails}, #{totalChapters})
-		]]>      
+		]]>
 	</insert>
-	
+
 	<select id="selectBook" resultMap="bookResult">
       <![CDATA[
          select * from book_details	where num = #{num} 	
       ]]>
 	</select>
-	
-<!-- 	<insert id="insertBook2"  parameterType="java.util.HashMap"> -->
-<!-- 		<![CDATA[ -->
-<!-- 			 insert into book_details(num, studyDate, title, details, chapters) -->
-<!-- 			 values(#{num}, #{studyDate}, #{studyTitle}, #{studyDetails}, #{totalChapters}) -->
-<!-- 		]]>       -->
-<!--    </insert> -->
-   
-<!--    <update id="updateBook"  parameterType="bookVO"> -->
-<!--      <![CDATA[ -->
-<!-- 	     update book_details -->
-<!-- 	     set studyTitle=#{studyTitle}, studyDetails=#{studyDetails}, totalChapters=#{totalChapters} -->
-<!-- 	     where -->
-<!-- 	     num=#{num} -->
-<!--       ]]>       -->
-<!--    </update>  -->
-     
-<!--    <delete id="deleteBook"  parameterType="String"> -->
-<!-- 	<![CDATA[ -->
-<!-- 	   delete from  book_details -->
-<!-- 	   where -->
-<!-- 	   num=#{num} -->
-<!-- 	]]>       -->
-<!--   </delete> -->
- </mapper>
+
+	<!-- <insert id="insertBook2" parameterType="java.util.HashMap"> -->
+	<!-- <![CDATA[ -->
+	<!-- insert into book_details(num, studyDate, title, details, chapters) -->
+	<!-- values(#{num}, #{studyDate}, #{studyTitle}, #{studyDetails}, #{totalChapters}) -->
+	<!-- ]]> -->
+	<!-- </insert> -->
+
+	<!-- <update id="updateBook" parameterType="bookVO"> -->
+	<!-- <![CDATA[ -->
+	<!-- update book_details -->
+	<!-- set studyTitle=#{studyTitle}, studyDetails=#{studyDetails}, totalChapters=#{totalChapters} -->
+	<!-- where -->
+	<!-- num=#{num} -->
+	<!-- ]]> -->
+	<!-- </update> -->
+
+	<delete id="deleteBook" parameterType="String">
+	<![CDATA[
+		delete from book_details where num=#{num}
+	]]>
+	</delete>
+</mapper>

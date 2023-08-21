@@ -50,6 +50,9 @@ public class BookDAOImpl implements BookDAO {
 
 	@Override
 	public int deleteBook(String num) throws DataAccessException {
+	    logger.debug("num " + num);
+        logger.info("num " + num);
+        logger.error("num " + num);
 		int result = sqlSession.delete("mapper.book.deleteBook", num);
 		return result;
 	}
