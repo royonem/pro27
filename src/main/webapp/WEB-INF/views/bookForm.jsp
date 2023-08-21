@@ -32,7 +32,7 @@
 			<tr>
 				<td width="200"><p align="right">Total Chapters</td>
 				<td width="400"><p>
-						<input type="text" name="totalChapters"></td>
+						<input type="number" name="totalChapters"></td>
 			</tr>
 			<tr>
 				<td width="200"><p align="right">Study Details</td>

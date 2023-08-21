@@ -23,20 +23,20 @@
 		<h1 class="text_center">학습 내용</h1>
 		<table align="center">
 			<tr>
-				<td width="200"><p align="right">${studyDate}</td>
+				<td width="200">${bookDetails.studyDate}</td>
 				<td width="400"><p>
 					</p></td>
 			<tr>
-				<td width="200"><p align="right">${studyTitle}</td>
+				<td width="200"><p align="right">${bookDetails.studyTitle}</td>
 				<td width="400"><p>
 					</p></td>
 			<tr>
-				<td width="200"><p align="right">${totalChapters}</td>
+				<td width="200"><p align="right">${bookDetails.totalChapters}</td>
 				<td width="400"><p>
 					</p></td>
 			</tr>
 			<tr>
-				<td width="200"><p align="right">${studyDetails}</td>
+				<td width="200"><p align="right">${bookDetails.studyDetails}</td>
 				<td width="400"><p>
 					</p></td>
 			</tr>

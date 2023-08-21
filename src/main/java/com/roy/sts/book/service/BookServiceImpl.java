@@ -27,11 +27,9 @@ public class BookServiceImpl implements BookService {
 	
 	@Override
 //	public BookVO getBookDetails(int num) throws DataAccessException {
-	public List getBookDetails(int num) throws DataAccessException {
+	public BookVO getBookDetails(int num) throws DataAccessException {
 
-		List bookView = null;
-		bookView = bookDAO.getBook(num);
-		return bookView;
+		return bookDAO.getBook(num);
 	}
 
 	@Override

@@ -27,7 +27,7 @@
 	
 	<select id="selectBook" resultMap="bookResult">
       <![CDATA[
-         select * from book_details	where num = ${num} 	
+         select * from book_details	where num = #{num} 	
       ]]>
 	</select>
 	

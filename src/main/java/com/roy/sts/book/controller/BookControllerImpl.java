@@ -61,11 +61,11 @@ public class BookControllerImpl implements BookController {
 	
 	@Override
 	@RequestMapping(value = "/book/viewBook.do", method = RequestMethod.GET)
-	public ModelAndView viewBook(@RequestParam("num") int num, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView viewBook(@RequestParam("num") String num, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = getViewName(request);
-		List<BookVO> bookDetails = bookService.getBookDetails(num);
+		BookVO bookDetails = bookService.getBookDetails(Integer.parseInt(num));
 		ModelAndView mav = new ModelAndView(viewName);
-				
+			
 //		mav.addObject("modelBookView", bookView);  // Changed attribute name
 	    mav.addObject("bookDetails", bookDetails);  // Add book details list
 
