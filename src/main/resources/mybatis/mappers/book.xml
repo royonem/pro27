@@ -34,7 +34,7 @@
 	<update id="updateBook" parameterType="bookVO">
 	<![CDATA[
 		update book_details
-		set studyTitle=#{studyTitle}, studyDetails=#{studyDetails}, totalChapters=#{totalChapters}
+		set title=#{studyTitle}, details=#{studyDetails}, chapters=#{totalChapters}
 		where num=#{num}]]>
 	</update>
 

@@ -47,6 +47,7 @@ public class BookDAOImpl implements BookDAO {
 	@Override
 	public int editBook(BookVO bookVO) throws DataAccessException {
 		int result = sqlSession.update("mapper.book.updateBook", bookVO);
+		logger.info("editBook: bookVO.getNum=" + bookVO.getNum());
 		return result;
 	}
 

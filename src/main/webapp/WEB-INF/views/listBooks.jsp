@@ -20,9 +20,7 @@
       <td><b>num</b></td>
       <td><b>학습 일자</b></td>
       <td><b>학습 내용</b></td>
-<!--       <td><b>학습 세부 내용</b></td> -->
       <td><b>학습량</b></td>
-<!--       <td><b>삭제</b></td> -->
    </tr>
    
  <c:forEach var="book" items="${bookList}" >     
