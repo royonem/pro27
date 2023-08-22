@@ -19,16 +19,14 @@ public class BookServiceImpl implements BookService {
 	private BookDAO bookDAO;
 
 	@Override
-	public List listBooks() throws DataAccessException {
-		List bookList = null;
+	public List<BookVO> listBooks() throws DataAccessException {
+		List<BookVO> bookList = null;
 		bookList = bookDAO.selectAllBookList();
 		return bookList;
 	}
 	
 	@Override
-//	public BookVO getBookDetails(int num) throws DataAccessException {
 	public BookVO getBookDetails(int num) throws DataAccessException {
-
 		return bookDAO.getBook(num);
 	}
 
@@ -38,7 +36,13 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public int removeBook(String num) throws DataAccessException {
+	public int removeBook(int num) throws DataAccessException {
 		return bookDAO.deleteBook(num);
 	}
+	
+	@Override
+	public int editBook(BookVO book) throws DataAccessException {
+		return bookDAO.editBook(book);
+	}
+	
 }

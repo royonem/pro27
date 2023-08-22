@@ -13,15 +13,15 @@ import com.roy.sts.book.vo.BookVO;
 public interface BookController {
 	public ModelAndView listBooks(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
-	public ModelAndView addBook(@ModelAttribute("info") BookVO bookVO, HttpServletRequest request,
+	public ModelAndView addBook(@ModelAttribute("this should not matter") BookVO bookVO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 
-	public ModelAndView removeBook(@RequestParam("num") String num, HttpServletRequest request,
+	public ModelAndView removeBook(@RequestParam("num") int num, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
-	
-//	public ModelAndView viewBook(@ModelAttribute("bookView") BookVO bookView, HttpServletRequest request) throws Exception;
-	
+		
 	public ModelAndView viewBook(@RequestParam("num") int num, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+
+	public ModelAndView editBook(@ModelAttribute("this should not matter") BookVO book, HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 }

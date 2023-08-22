@@ -7,8 +7,9 @@ import com.roy.sts.book.vo.BookVO;
 
 
 public interface BookService {
-	 public List listBooks() throws DataAccessException;
+	 public List<BookVO> listBooks() throws DataAccessException;
 	 public int addBook(BookVO bookVO) throws DataAccessException;
-	 public int removeBook(String num) throws DataAccessException;
+	 public int removeBook(int num) throws DataAccessException;
 	 public BookVO getBookDetails(int num) throws DataAccessException;
+	 public int editBook(BookVO book) throws DataAccessException;
 }

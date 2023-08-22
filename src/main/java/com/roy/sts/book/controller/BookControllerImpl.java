@@ -26,10 +26,10 @@ public class BookControllerImpl implements BookController {
 	private BookVO bookVO;
 
 	@Override
-	@RequestMapping(value = "/book/listBooks.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/book/listBooks.shinoo", method = RequestMethod.GET)
 	public ModelAndView listBooks(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = getViewName(request);
-		List bookList = bookService.listBooks();
+		List<BookVO> bookList = bookService.listBooks();
 		ModelAndView mav = new ModelAndView(viewName);
 		mav.addObject("bookList", bookList);
 		return mav;
@@ -42,28 +42,14 @@ public class BookControllerImpl implements BookController {
 		request.setCharacterEncoding("utf-8");
 		int result = 0;
 		result = bookService.addBook(book);
-		ModelAndView mav = new ModelAndView("redirect:/book/listBooks.do");
+		ModelAndView mav = new ModelAndView("redirect:/book/listBooks.shinoo");
 		return mav;
 	}
 
-//	@Override
-//	@RequestMapping(value = "/book/viewBook.do", method = RequestMethod.GET)
-//	public ModelAndView viewBook(@ModelAttribute("bookView") BookVO bookView, HttpServletRequest request) throws Exception {
-//		String viewName = getViewName(request);
-//		List<BookVO> bookDetails = bookService.getBookDetails(num);
-//		ModelAndView mav = new ModelAndView(viewName);
-//				
-//		mav.addObject("modelBookView", bookView);  // Changed attribute name
-//	    mav.addObject("bookDetails", bookDetails);  // Add book details list
-//
-//		return mav;
-//	}
-	
 	@Override
 	@RequestMapping(value = "/book/viewBook.do", method = RequestMethod.GET)
 	public ModelAndView viewBook(@RequestParam("num") int num, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = getViewName(request);
-//		BookVO bookDetails = bookService.getBookDetails(Integer.parseInt(num));
 		BookVO bookDetails = bookService.getBookDetails(num);
 		ModelAndView mav = new ModelAndView(viewName);
 			
@@ -74,11 +60,21 @@ public class BookControllerImpl implements BookController {
 
 	@Override
 	@RequestMapping(value = "/book/removeBook.do", method = RequestMethod.GET)
-	public ModelAndView removeBook(@RequestParam("num") String num, HttpServletRequest request,
+	public ModelAndView removeBook(@RequestParam("num") int num, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		bookService.removeBook(num);
-		ModelAndView mav = new ModelAndView("redirect:/book/listBooks.do");
+		ModelAndView mav = new ModelAndView("redirect:/book/listBooks.shinoo");
+		return mav;
+	}
+	
+	@Override
+	@RequestMapping(value = "/book/editBook.do", method = RequestMethod.POST)
+	public ModelAndView editBook(@ModelAttribute("book") BookVO book, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		bookService.editBook(book);
+		ModelAndView mav = new ModelAndView("redirect:/book/viewBook.do?num=${num}");
 		return mav;
 	}
 
@@ -86,13 +82,26 @@ public class BookControllerImpl implements BookController {
 	 * @RequestMapping(value = { "/book/loginForm.do", "/book/bookForm.do" },
 	 * method = RequestMethod.GET)
 	 */
-	@RequestMapping(value = "/book/*Form.do", method = RequestMethod.GET)
-	public ModelAndView form(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "/book/bookForm.do", method = RequestMethod.GET)
+	public ModelAndView bookForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName = getViewName(request);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(viewName);
 		return mav;
 	}
+	
+	@RequestMapping(value = "/book/editForm.do", method = RequestMethod.GET)
+	public ModelAndView editForm(@RequestParam("num") int num, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = getViewName(request);
+		ModelAndView mav = new ModelAndView(viewName);
+
+		BookVO bookDetails = bookService.getBookDetails(num);
+			
+	    mav.addObject("bookDetails", bookDetails);
+		
+		return mav;
+	}
+
 
 	private String getViewName(HttpServletRequest request) throws Exception {
 		String contextPath = request.getContextPath();

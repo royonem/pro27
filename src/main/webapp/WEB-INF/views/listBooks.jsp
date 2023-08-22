@@ -30,9 +30,7 @@
       <td>${book.num}</td>
       <td>${book.studyDate}</td>
       <td><a href="${contextPath}/book/viewBook.do?num=${book.num}">${book.studyTitle}</a></td>
-<%--       <td>${book.studyDetails}</td> --%>
       <td>${book.totalChapters}</td>
-<%--       <td><a href="${contextPath}/book/removeBook.do?num=${book.num}">삭제하기</a></td> --%>
     </tr>
   </c:forEach>   
 </table>

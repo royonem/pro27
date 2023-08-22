@@ -1,9 +1,6 @@
 package com.roy.sts.book.dao;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -11,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.annotation.Aspect;
-import org.slf4j.LoggerFactory;
 import com.roy.sts.book.vo.BookVO;
 
 @Repository("bookDAO")
@@ -25,7 +21,7 @@ public class BookDAOImpl implements BookDAO {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<BookVO> selectAllBookList() throws DataAccessException {
+	public List<BookVO> selectAllBookList() throws DataAccessException { // Why does this one work with List but not getBook?
 		List<BookVO> bookList = null;
 		bookList = sqlSession.selectList("mapper.book.selectAllBookList");
 		return bookList;
@@ -47,9 +43,15 @@ public class BookDAOImpl implements BookDAO {
         
 	    return bookView;
 	}
+	
+	@Override
+	public int editBook(BookVO bookVO) throws DataAccessException {
+		int result = sqlSession.update("mapper.book.updateBook", bookVO);
+		return result;
+	}
 
 	@Override
-	public int deleteBook(String num) throws DataAccessException {
+	public int deleteBook(int num) throws DataAccessException {
 	    logger.debug("num " + num);
         logger.info("num " + num);
         logger.error("num " + num);

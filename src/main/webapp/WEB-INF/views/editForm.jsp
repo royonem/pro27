@@ -19,26 +19,28 @@
 </style>
 </head>
 <body>
-	<form method="post" action="${contextPath}/book/modBook.do">
+	<form method="post" action="${contextPath}/book/editBook.do">
 		<h1 class="text_center">회원 정보 수정창</h1>
 		<table align="center">
 			<tr>
-				<td width="200"><p align="right">아이디</td>
-				<td width="400"><input type="text" name="num"></td>
+			<tr>
+				<td width="200"><p align="right">${bookDetails.studyDate}</td>
+				<td width="400"><input type="text" name="studyDate"></td>
 			</tr>
 			<tr>
-				<td width="200"><p align="right">비밀번호</td>
-				<td width="400"><input type="password" name="pwd"></td>
+				<td width="200"><p align="right">${bookDetails.studyTitle}</td>
+				<td width="400"><input type="text" name="studyTitle"></td>
 			</tr>
 			<tr>
-				<td width="200"><p align="right">이름</td>
+				<td width="200"><p align="right">${bookDetails.totalChapters}</td>
 				<td width="400"><p>
-						<input type="text" name="name"></td>
+						<input type="number" name="totalChapters"></td>
 			</tr>
 			<tr>
-				<td width="200"><p align="right">이메일</td>
+				<td width="200"><p align="right">${bookDetails.studyDetails }</td>
 				<td width="400"><p>
-						<input type="text" name="email"></td>
+						<textarea name="studyDetails" rows="20" cols="50"> </textarea>
+					</p></td>
 			</tr>
 			<tr>
 				<td width="200"><p>&nbsp;</p></td>
