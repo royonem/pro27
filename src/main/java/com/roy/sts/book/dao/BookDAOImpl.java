@@ -13,15 +13,15 @@ import com.roy.sts.book.vo.BookVO;
 @Repository("bookDAO")
 @Aspect
 public class BookDAOImpl implements BookDAO {
-    private static final Logger logger = LogManager.getLogger(BookDAOImpl.class);
-//    private static final Logger logger2 = (Logger) LoggerFactory.getLogger(BookDAOImpl.class);
+	private static final Logger logger = LogManager.getLogger(BookDAOImpl.class);
+	// private static final Logger logger2 = (Logger)
+	// LoggerFactory.getLogger(BookDAOImpl.class);
 
-	
 	@Autowired
 	private SqlSession sqlSession;
 
 	@Override
-	public List<BookVO> selectAllBookList() throws DataAccessException { // Why does this one work with List but not getBook?
+	public List<BookVO> selectAllBookList() throws DataAccessException { 
 		List<BookVO> bookList = null;
 		bookList = sqlSession.selectList("mapper.book.selectAllBookList");
 		return bookList;
@@ -30,20 +30,22 @@ public class BookDAOImpl implements BookDAO {
 	@Override
 	public int insertBook(BookVO bookVO) throws DataAccessException {
 		int result = sqlSession.insert("mapper.book.insertBook", bookVO);
+
 		return result;
+
 	}
-	
+
 	@Override
 	public BookVO getBook(int num) throws DataAccessException {
 		BookVO bookView = null;
-	    logger.debug("num " + num);
-        logger.info("num " + num);
-        logger.error("num " + num);
-	    bookView = sqlSession.selectOne("mapper.book.selectBook", num);
-        
-	    return bookView;
+		logger.debug("num " + num);
+		logger.info("num " + num);
+		logger.error("num " + num);
+		bookView = sqlSession.selectOne("mapper.book.selectBook", num);
+
+		return bookView;
 	}
-	
+
 	@Override
 	public int editBook(BookVO bookVO) throws DataAccessException {
 		int result = sqlSession.update("mapper.book.updateBook", bookVO);
@@ -53,9 +55,9 @@ public class BookDAOImpl implements BookDAO {
 
 	@Override
 	public int deleteBook(int num) throws DataAccessException {
-	    logger.debug("num " + num);
-        logger.info("num " + num);
-        logger.error("num " + num);
+		logger.debug("num " + num);
+		logger.info("num " + num);
+		logger.error("num " + num);
 		int result = sqlSession.delete("mapper.book.deleteBook", num);
 		return result;
 	}

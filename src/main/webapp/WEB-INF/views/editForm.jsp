@@ -19,7 +19,7 @@
 </style>
 </head>
 <body>
-	<form method="post" action="${contextPath}/book/editBook.do?num=${bookDetails.num}">
+	<form method="post" action="${contextPath}/book/editBook.do">
 		<h1 class="text_center">회원 정보 수정창</h1>
 		<table align="center">
 			<tr>

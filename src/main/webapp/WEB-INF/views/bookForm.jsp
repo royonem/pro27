@@ -15,6 +15,7 @@
 .text_center {
 	text-align: center;
 }
+
 </style>
 </head>
 <body>
@@ -43,8 +44,11 @@
 			<tr>
 				<td width="200"><p>&nbsp;</p></td>
 				<td width="400"><input type="submit" value="등록하기"> <input
-					type="reset" value="다시입력"></td>
+					type="reset" value="다시입력">
+		<input type="button" class="text_center" value="학습 목록 가기"  
+		onClick="window.location='${contextPath}/book/listBooks.shinoo'"></td>
 			</tr>
 		</table>
 	</form>
+			
 </body>

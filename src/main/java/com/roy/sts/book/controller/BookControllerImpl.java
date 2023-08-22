@@ -74,8 +74,8 @@ public class BookControllerImpl implements BookController {
 			HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		bookService.editBook(book);
-//		ModelAndView mav = new ModelAndView("redirect:/book/viewBook.do?num=${num}");
-		ModelAndView mav = new ModelAndView("redirect:/book/listBooks.shinoo");
+		ModelAndView mav = new ModelAndView("redirect:/book/viewBook.do?num="+book.getNum());
+//		ModelAndView mav = new ModelAndView("redirect:/book/listBooks.shinoo");
 		return mav;
 	}
 
