@@ -24,22 +24,22 @@
 		<table align="center">
 			<tr>
 			<tr>
-				<td width="200"><p align="right">${bookDetails.studyDate}</td>
-				<td width="400"><input type="text" name="studyDate"></td>
+				<td width="200"><p align="right">학습일자</td>
+				<td width="400"><input type="text" name="studyDate" value=${bookDetails.studyDate}></td>
 			</tr>
 			<tr>
-				<td width="200"><p align="right">${bookDetails.studyTitle}</td>
-				<td width="400"><input type="text" name="studyTitle"></td>
+				<td width="200"><p align="right">학습 제목</td>
+				<td width="400"><input type="text" name="studyTitle" value=${bookDetails.studyTitle}></td>
 			</tr>
 			<tr>
-				<td width="200"><p align="right">${bookDetails.totalChapters}</td>
+				<td width="200"><p align="right">수업량</td>
 				<td width="400"><p>
-						<input type="number" name="totalChapters"></td>
+						<input type="number" value=${bookDetails.totalChapters}> </td>
 			</tr>
 			<tr>
-				<td width="200"><p align="right">${bookDetails.studyDetails }</td>
+				<td width="200"><p align="right">학습 세부 내용</td>
 				<td width="400"><p>
-						<textarea name="studyDetails" rows="20" cols="50"> </textarea>
+						<textarea name="studyDetails" rows="20" cols="50"> ${bookDetails.studyDetails} </textarea>
 					</p></td>
 			</tr>
 			<tr>
